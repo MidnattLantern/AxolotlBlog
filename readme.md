@@ -47,3 +47,17 @@ if os.path.isfile('env.py'):
 `
 - Replace the secret key with this:
 `= os.environ.get('SECRET_KEY')`
+
+Cloudinary
+---
+- As of 20 feb 2024, the API enviroment variable is found inside "programmable media"
+- Add to the env.py:
+`os.environ["CLOUDINARY_URL"]=`
+
+Heroku (manual method):
+---
+- Create a new Heroku app.
+- In the settings tab, add keys and values, the same as from your env.py file.
+- Add the key: "DISABLE_COLLECTSTATIC" and the value: "1"
+- When deploying for the first time, make sure the app is connected to the GitHub repository.
+- For each deployment, make sure the git repository is commited to date, and that the requirements are frozen.
