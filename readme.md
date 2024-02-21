@@ -78,7 +78,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 Heroku (manual method):
 ---
-- In settings.py, add `https://axolotl-blog-66ea1f84b437.herokuapp.com` to allowed hosts. It may be neccessary to update this link. Without this, it won't be possible to deploy.
+- In settings.py, add `axolotl-blog-66ea1f84b437.herokuapp.com` to allowed hosts. It may be neccessary to update this link. Without this, it won't be possible to deploy.
 - Heroku need a Procfile to read the repository. Add this in Procfile:
 `
 web: gunicorn axolotlblog.wsgi

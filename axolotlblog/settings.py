@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://axolotl-blog-66ea1f84b437.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['axolotl-blog-66ea1f84b437.herokuapp.com', 'localhost']
 
 
 """ added apps:
