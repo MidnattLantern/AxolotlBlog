@@ -1,0 +1,1 @@
+web: gunicorn axolotlblog.wsgi

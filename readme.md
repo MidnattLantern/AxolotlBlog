@@ -53,11 +53,38 @@ Cloudinary
 - As of 20 feb 2024, the API enviroment variable is found inside "programmable media"
 - Add to the env.py:
 `os.environ["CLOUDINARY_URL"]=`
+- Add to installed apps:
+`
+cloudinary_storage
+cloudinary
+`
+- Add underneath STATIC_FILES:
+`
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StataicHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+`
+- Add underneath BASE_DIR:
+`
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+`
+- Add inside the empty array 'DIRS' []:
+`TEMPLATES_DIR`
+- media, templates, and static folder was added in the base directory.
+
 
 Heroku (manual method):
 ---
-- Create a new Heroku app.
+- In settings.py, add `https://axolotl-blog-66ea1f84b437.herokuapp.com` to allowed hosts. It may be neccessary to update this link. Without this, it won't be possible to deploy.
+- Heroku need a Procfile to read the repository. Add this in Procfile:
+`
+web: gunicorn axolotlblog.wsgi
+`
+- In Heroku, Create a new Heroku app.
 - In the settings tab, add keys and values, the same as from your env.py file.
-- Add the key: "DISABLE_COLLECTSTATIC" and the value: "1"
+- Add the key: "DISABLE_COLLECTSTATIC" and the value: "1". Without this, the deployment will fail.
 - When deploying for the first time, make sure the app is connected to the GitHub repository.
 - For each deployment, make sure the git repository is commited to date, and that the requirements are frozen.
