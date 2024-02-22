@@ -88,3 +88,9 @@ web: gunicorn axolotlblog.wsgi
 - Add the key: "DISABLE_COLLECTSTATIC" and the value: "1". Without this, the deployment will fail.
 - When deploying for the first time, make sure the app is connected to the GitHub repository.
 - For each deployment, make sure the git repository is commited to date, and that the requirements are frozen.
+
+blog.py models
+---
+`Import User`
+`import CloudinaryField` enable the use of Cloudinary, the cloud platform service hosting images.
+CASCADE: With one-to-many fields, a records and all its content wants to be deleted.
