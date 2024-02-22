@@ -99,6 +99,21 @@ Summernote:
 - Add to installed apps
 
 
+Allauth:
+---
+- In terminal:
+`pip3 install django-allauth`
+- Add to urls.py inside axolotlblog:
+`path('accounts/', include('allauth.urls')),`
+- Add to installed apps:
+`
+allauth
+django.contrib.sites
+allauth.account
+allauth.socialaccount
+`
+
+
 blog.py models
 ---
 `Import User`
@@ -109,3 +124,14 @@ CASCADE: With one-to-many fields, a records and all its content wants to be dele
 admin.py
 ---
 `prepopulated_fields = {'slug': ('title',)}` automatically generates a slugfield when editing from the admin panel. This will only work when working inside the admin panel.
+
+
+Etc
+---
+`ACCOUNT_EMAIL_VERIFICATION = 'none'` in settings.py prevent 500 error
+- This works with allauth, so that you're sent to the main page when log in or out:
+`
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+`

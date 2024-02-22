@@ -40,6 +40,10 @@ blog
 cloudinary_storage
 cloudinary
 django_summernote
+allauth
+django.contrib.sites
+allauth.account
+allauth.socialaccount
 """
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -47,12 +51,23 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'blog',
     'django_summernote',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,6 +77,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # console would return an error without this one:
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'axolotlblog.urls'
