@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ['axolotl-blog-66ea1f84b437.herokuapp.com', 'localhost']
 blog
 cloudinary_storage
 cloudinary
+django_summernote
 """
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -50,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'blog',
-
+    'django_summernote',
 ]
 
 MIDDLEWARE = [

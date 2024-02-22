@@ -89,8 +89,23 @@ web: gunicorn axolotlblog.wsgi
 - When deploying for the first time, make sure the app is connected to the GitHub repository.
 - For each deployment, make sure the git repository is commited to date, and that the requirements are frozen.
 
+
+Summernote:
+---
+- In terminal:
+`pip3 install django-summernote`
+- Freeze:
+`pip3 freeze --local > requirements.txt`
+- Add to installed apps
+
+
 blog.py models
 ---
 `Import User`
 `import CloudinaryField` enable the use of Cloudinary, the cloud platform service hosting images.
 CASCADE: With one-to-many fields, a records and all its content wants to be deleted.
+
+
+admin.py
+---
+`prepopulated_fields = {'slug': ('title',)}` automatically generates a slugfield when editing from the admin panel. This will only work when working inside the admin panel.
