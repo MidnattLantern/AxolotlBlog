@@ -113,6 +113,15 @@ allauth.account
 allauth.socialaccount
 `
 
+crispy forms
+---
+- In terminal:
+`pip3 install django-crispy-forms==1.14.0`
+- Don't forget to freeze and add to installed apps:
+`crispy_forms`
+- This need to be added too:
+`CRISPY_TEMPLATE_PACK = 'bootstrap4'`
+
 
 blog.py models
 ---
@@ -135,3 +144,7 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 `
+- To see the version of Python, run this in terminal:
+`ls ../.pip-modules/lib`
+- add this for each form:
+`{% csrf_token %}`
