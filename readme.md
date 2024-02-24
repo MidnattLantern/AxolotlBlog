@@ -148,3 +148,18 @@ LOGOUT_REDIRECT_URL = '/'
 `ls ../.pip-modules/lib`
 - add this for each form:
 `{% csrf_token %}`
+
+
+Future features
+---
+- Feedback messages for commenting and liking
+- Use AllAuth to work with Google or Facebook
+- The front page show a counter of comments
+
+
+Design
+---
+- theme colour:
+#ce3266
+- font class:
+kurale-font
